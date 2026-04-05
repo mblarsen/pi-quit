@@ -11,7 +11,7 @@ A tiny [pi](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent)
 
 When pi is idle and the editor is already empty, the first press shows a temporary footer hint:
 
-> ctrl+c again to quit
+> Ctrl+C again to quit
 
 If you remap `app.clear` in `~/.pi/agent/keybindings.json`, this extension follows the remapped key automatically.
 
