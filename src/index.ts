@@ -119,8 +119,19 @@ class QuitAwareEditor extends CustomEditor {
 
     const label = `\x1b[33m\x1b[1m${this.hintMessage}\x1b[22m\x1b[39m`;
     const targetLine = 1;
-    if (visibleWidth(lines[targetLine]!) >= visibleWidth(label)) {
-      lines[targetLine] = truncateToWidth(lines[targetLine]!, width - visibleWidth(label), "") + label;
+    const maxPadding = Math.max(0, Math.floor((width - 1) / 2));
+    const paddingX = Math.min(this.getPaddingX(), maxPadding);
+    const rightPadding = " ".repeat(paddingX);
+
+    const line = lines[targetLine]!;
+    const lineWithoutRightPadding =
+      paddingX > 0 && line.endsWith(rightPadding) ? line.slice(0, -paddingX) : line;
+
+    if (visibleWidth(lineWithoutRightPadding) >= visibleWidth(label)) {
+      lines[targetLine] =
+        truncateToWidth(lineWithoutRightPadding, width - paddingX - visibleWidth(label), "") +
+        label +
+        rightPadding;
     }
     return lines;
   }

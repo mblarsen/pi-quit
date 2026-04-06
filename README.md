@@ -39,7 +39,7 @@ Use the published npm package and pin a version:
 ```json
 {
   "packages": [
-    "npm:pi-quit@0.1.3"
+    "npm:pi-quit@0.1.4"
   ]
 }
 ```
@@ -47,7 +47,7 @@ Use the published npm package and pin a version:
 Or via CLI:
 
 ```bash
-pi install npm:pi-quit@0.1.3
+pi install npm:pi-quit@0.1.4
 ```
 
 
