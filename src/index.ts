@@ -124,14 +124,15 @@ class QuitAwareEditor extends CustomEditor {
     const rightPadding = " ".repeat(paddingX);
 
     const line = lines[targetLine]!;
-    const lineWithoutRightPadding =
-      paddingX > 0 && line.endsWith(rightPadding) ? line.slice(0, -paddingX) : line;
+    const labelWidth = visibleWidth(label);
+    const contentWidth = Math.max(1, width - paddingX);
 
-    if (visibleWidth(lineWithoutRightPadding) >= visibleWidth(label)) {
-      lines[targetLine] =
-        truncateToWidth(lineWithoutRightPadding, width - paddingX - visibleWidth(label), "") +
-        label +
-        rightPadding;
+    if (visibleWidth(line) >= labelWidth) {
+      const left = truncateToWidth(line, Math.max(0, contentWidth - labelWidth), "");
+      const lineWithLabel = left + label;
+      const lineWithLabelWidth = visibleWidth(lineWithLabel);
+      const contentPad = " ".repeat(Math.max(0, contentWidth - lineWithLabelWidth));
+      lines[targetLine] = lineWithLabel + contentPad + rightPadding;
     }
     return lines;
   }
