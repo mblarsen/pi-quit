@@ -1,0 +1,8 @@
+.git/
+.pi/
+node_modules/
+demo.gif
+*.log
+*.tmp
+*.swp
+*.DS_Store
