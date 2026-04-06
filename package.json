@@ -1,7 +1,6 @@
 {
   "name": "pi-quit",
-  "version": "0.1.1",
-  "private": true,
+  "version": "0.1.2",
   "type": "module",
   "description": "A tiny pi extension that shows a quit hint on the first clear key press when pi is idle.",
   "author": "Michael Bøcker-Larsen <mbl@code.boutique>",
