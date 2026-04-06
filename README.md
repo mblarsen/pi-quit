@@ -32,6 +32,25 @@ Or symlink/copy the repo into one of pi's auto-discovery locations and reload:
 
 Because `package.json` contains a `pi.extensions` entry, you can also point pi at the repo directory.
 
+## Install from npm (recommended)
+
+Use the published npm package and pin a version:
+
+```json
+{
+  "packages": [
+    "npm:pi-quit@0.1.3"
+  ]
+}
+```
+
+Or via CLI:
+
+```bash
+pi install npm:pi-quit@0.1.3
+```
+
+
 ## Notes
 
 This uses a custom editor component instead of `registerShortcut()`.
